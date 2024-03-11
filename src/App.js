@@ -18,6 +18,7 @@ import extractRowExport, {exportRowExport} from './utils/data-export/export';
 import { getProgramInfo as getNSGYProgramInfo } from './utils/neurosurgery-match/program';
 import SyncProblemIcon from '@mui/icons-material/SyncProblem';
 import ExternalDataStatus from './components/ExternalDataStatus'
+import { PUBLICATION_DATA_API } from './utils/config/api-endpoints';
 
 const constructDataFrame = async (pandasDF) => {
   /**
@@ -196,7 +197,6 @@ export const getProgramDisplay = (row) => {
 
 const PUBLICATION_STATIC_DATA_URL = 'https://raw.githubusercontent.com/cervere/bibliometric-tool-static/main/data/pubs_with_author_match_latest_10042023.json';
 
-const PUBLICATION_DATA_API = 'https://busy-laced-haircut.glitch.me/pub-ind-pro'
 
 function App() {
     // initialize state for the data

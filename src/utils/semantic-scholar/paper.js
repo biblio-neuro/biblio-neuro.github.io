@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { PAPER_URL_ROUTE, SEMANTIC_API_HEADERS } from "./common";
+import { PUBMETRICS_DATA_ENDPOINT } from '../config/api-endpoints';
 
 export const getPaperCitationCountsByDOI = async (dois) => {
     const doisFormatted = dois.map((doi) => 'DOI:'+doi);
@@ -37,11 +38,9 @@ export const getPaperCitationCountsByDOI = async (dois) => {
 }
 
 export const getPaperCitationCountsByDOICustom = async (dois) => {
-  const url = 'https://amusing-gregarious-system.glitch.me/semantic-pubs'
-
   const data = { ids: dois };
   try{
-      const response = await axios.post(url, data);
+      const response = await axios.post(PUBMETRICS_DATA_ENDPOINT, data);
       if(response.status === 200){
           return response.data;
       } 

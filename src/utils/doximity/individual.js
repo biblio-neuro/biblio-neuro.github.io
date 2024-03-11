@@ -1,9 +1,8 @@
 import axios from 'axios';
+import { INDIVIDUALS_DATA_ENDPOINT } from '../config/api-endpoints';
 
 export const updateDoximityUserInfo = async (setDoximityUserData, setDoximityUserDataLoaded) => {
-    const url = `https://amusing-gregarious-system.glitch.me/individuals`;
-
-    const res = await axios.get(url).catch(error => {
+    const res = await axios.get(INDIVIDUALS_DATA_ENDPOINT).catch(error => {
         console.error(error);
     });
     const doximityUserInfo = res.data;
