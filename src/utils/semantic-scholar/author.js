@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { AUTHOR_URL_ROUTE } from "./common";
+import { AUTHOR_URL_ROUTE, SEMANTIC_API_HEADERS } from "./common";
 
 export const getAuthorInfo = async (authorIds) => {
     const url = AUTHOR_URL_ROUTE + 'batch?fields=name,citationCount,hIndex,paperCount'
 
     const data = { ids: authorIds };
-    const response = await axios.post(url, data);
+    const response = await axios.post(url, data, {headers: SEMANTIC_API_HEADERS});
     if(response.status === 200){
         let authorDetails = {}
         response.data.forEach((entry, i) => {
